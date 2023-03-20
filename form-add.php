@@ -13,7 +13,7 @@ require 'init.php';
 </head>
 <body>
     <div class="container">
-        <h1> CADASTRE SUA SÉRIE <h1>
+        <h2>Cadastre sua série<h2>
         
         <form action="add.php" method="post">
         <div class="form-group">
@@ -33,7 +33,7 @@ require 'init.php';
             <input type="int" class="form-control col-sm" name="temporadas" id="temporadas" style="width:25%;" placeholder="Ex: 2 temporadas...">
         </div>
         <div class="form-group">
-            <label for="avaliacao">Avaliação: </label>
+            <label for="avaliacao">Avaliação de 0 a 10: </label>
             <input type="int" class="form-control col-sm" name="avaliacao" id="avaliacao" style="width:25%;" placeholder="Entre 0 e 10...">
         </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>

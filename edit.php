@@ -1,16 +1,16 @@
 <?php
 require_once 'init.php';
-$nome = isset($_POST['nome']) ? $_POST['name'] : null;
+$nome = isset($_POST['nome']) ? $_POST['nome'] : null;
 $canal = isset($_POST['canal']) ? $_POST['canal'] : null;
 $ano = isset($_POST['ano']) ? $_POST['ano'] : null;
 $temporadas = isset($_POST['temporadas']) ? $_POST['temporadas'] : null;
 $avaliacao = isset($_POST['avaliacao']) ? $_POST['avaliacao'] : null;
 if ((empty($nome)) || (empty($canal)) || (empty($ano)) || (empty($temporadas)) || (empty($avaliacao)))
 {
-    echo "Por gentilza, preencha todos os campos!";
+    echo "Por gentileza, preencha todos os campos!";
     exit;
 }
-if ($avaliacao > 10 || $avaliacao < 0)
+if ($avaliacao >= 10 || $avaliacao < 0)
 {
     echo "A avaliação deve ser feita apenas entre 0 a 10!";
 }
