@@ -31,6 +31,12 @@ if (!is_array($series))
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
         <script src="bootstrap/js/bootstrap.js"></script>
         <script src="bootstrap/js/bootstrap.js"></script>
+        <style type="text/css">
+            .container{
+                margin-top: 50px;
+                margin-left: 100px;
+            }
+        </style>
     </head>
     <body>
     <div class="container">
