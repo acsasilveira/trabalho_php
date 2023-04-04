@@ -5,14 +5,16 @@ $canal = isset($_POST['canal']) ? $_POST['canal'] : null;
 $ano = isset($_POST['ano']) ? $_POST['ano'] : null;
 $temporadas = isset($_POST['temporadas']) ? $_POST['temporadas'] : null;
 $avaliacao = isset($_POST['avaliacao']) ? $_POST['avaliacao'] : null;
-if ((empty($nome)) || (empty($canal)) || (empty($ano)) || (empty($temporadas)) || (empty($avaliacao)))
+$id = isset($_POST['id']) ? $_POST['id'] : null;
+if ((empty($nome)) || (empty($canal)) || (empty($ano)) || (empty($temporadas)) || (empty($avaliacao)) || (empty($id)))
 {
     echo "Por gentileza, preencha todos os campos!";
     exit;
 }
-if ($avaliacao >= 10 || $avaliacao < 0)
+if ($avaliacao > 10 || $avaliacao < 0)
 {
     echo "A avaliação deve ser feita apenas entre 0 a 10!";
+    exit;
 }
 $PDO = db_connect();
 $sql = "UPDATE Series SET nome = :nome, canal = :canal, ano = :ano, temporadas = :temporadas, avaliacao = :avaliacao WHERE id = :id";

@@ -18,20 +18,16 @@ $stmt->execute();
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Cadastro de séries assistidas</title>
+        <title>Séries Assistidas</title>
 
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap/js/JQuery.js"></script>
+    <script src="bootstrap/js/popper.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
-    <style type="text/css">
-        .container{
-            margin-top: 50px;
-            margin-left: 100px;
-        }
-        </style>
-        </head>
+    </head>
     <body>
         <div class="container">
-            <h1>Cadastro de séries assistidas</h1>
+            <h1 class="h1 text-center">Cadastro das Séries Assistidas</h1>
             <p><a href="form-add.php">Adicionar Série</a></p>
             <h2>Lista de séries assistidas</h2>
             <p>Total de séries: <?php echo $total ?></p>

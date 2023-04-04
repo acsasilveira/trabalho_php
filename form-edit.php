@@ -44,24 +44,24 @@ if (!is_array($series))
             <form action="edit.php" method="post">
             <div class="form-group">
                 <label for="name">Nome: </label>
-                <input type="text" class="form-control col-sm" name="nome" id="nome" style="width:25%;" placeholder="<?php echo $series['nome'] ?>...">
+                <input type="text" class="form-control col-sm" name="nome" id="nome" style="width:25%;" value="<?php echo $series['nome'] ?>">
                     
             </div>
             <div class="form-group">
                 <label for="canal">Canal: </label>
-                <input type="text" class="form-control col-sm" name="canal" id="canal" style="width:25%;" placeholder="<?php echo $series['canal'] ?>...">
+                <input type="text" class="form-control col-sm" name="canal" id="canal" style="width:25%;" value="<?php echo $series['canal'] ?>">
             </div>
             <div class="form-group">
                 <label for="ano">Ano de lançamento: </label>
-                <input type="int" class="form-control col-sm" name="ano" id="ano" style="width:25%;" placeholder="<?php echo $series['ano'] ?>...">
+                <input type="int" class="form-control col-sm" name="ano" id="ano" style="width:25%;" value="<?php echo $series['ano'] ?>">
             </div>
             <div class="form-group">
                 <label for="temporadas">Quantidade de temporadas: </label>
-                <input type="int" class="form-control col-sm" name="temporadas" id="temporadas" style="width:25%;" placeholder="<?php echo $series['temporadas'] ?> temporadas...">
+                <input type="int" class="form-control col-sm" name="temporadas" id="temporadas" style="width:25%;" value="<?php echo $series['temporadas'] ?>">
             </div>
             <div class="form-group">
                 <label for="avaliacao">Avaliação de 0 a 10:</label>
-                <input type="int" class="form-control col-sm" name="avaliacao" id="avaliacao" style="width:25%;" placeholder="<?php echo $series['avaliacao'] ?>...">
+                <input type="number" class="form-control col-sm" name="avaliacao" id="avaliacao" style="width:25%;" value="<?php echo $series['avaliacao'] ?>">
             </div>
             <input type="hidden" name="id" value="<?php echo $id ?>">
             <button type="submit" class="btn btn-primary">Alterar</button>
