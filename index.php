@@ -20,6 +20,13 @@ $stmt->execute();
     <script src="bootstrap/js/JQuery.js"></script>
     <script src="bootstrap/js/popper.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="text/javascript">
+        $(document).ready(function(){
+            $(function(){
+                $("#menu").load("navbar.html");
+            });
+        });
+    </script>
     </head>
     <body>
         <div class="container">

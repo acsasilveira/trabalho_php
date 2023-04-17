@@ -6,7 +6,7 @@ $canal = isset($_POST['canal']) ? $_POST['canal'] : null;
 $ano = isset($_POST['ano']) ? $_POST['ano'] : null;
 $temporadas = isset($_POST['temporadas']) ? $_POST['temporadas'] : null;
 $avaliacao = isset($_POST['avaliacao']) ? $_POST['avaliacao'] : null;
-// validação (bem simples, se usa ape)
+// validação
 if ((empty($nome)) || (empty($canal)) || (empty($ano)) || (empty($temporadas)) || (empty($avaliacao)))
 {
     echo "Por gentilza, preencha todos os campos!";

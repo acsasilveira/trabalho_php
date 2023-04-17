@@ -47,7 +47,7 @@ require 'init.php';
                 </nav>
                 <h1 class="h1 text-center" style="margin: 20px">Cadastro das Séries Assistidas</h1>
         <div class="container">
-            <form action="add.php" method="post">
+            <form action="add-canal.php" method="post">
             <div class="form-group">
                 <label for="name">Nome: </label>
                 <input type="text" class="form-control col-sm" name="nome" id="nome" style="width:25%;" placeholder="Digite o nome...">
