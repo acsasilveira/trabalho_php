@@ -1,5 +1,10 @@
 <?php
-require 'init.php';
+require_once 'init.php';
+$PDO = db_connect();
+$sql = "SELECT id, nomeCanal FROM Canal ORDER BY nomeCanal ASC";
+$stmt = $PDO->prepare($sql);
+$stmt-> execute();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,13 +38,15 @@ require 'init.php';
                                 <div class="dropdown-menu" aria-labelledby="dropdown10">
                                     <a class="dropdown-item" href="form-add.php">Cadastrar Série</a>
                                     <a class="dropdown-item" href="lista-series.php">Lista de Séries</a>
-                                    <a class="dropdown-item" href="editar-as-listas-series.php">Edição de Séries</a>
+                                    <a class="dropdown-item" href="form-edit-series.php">Edição de Séries</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Canais</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown10">
                                     <a class="dropdown-item" href="form-add-canal.php">Cadastrar Canal</a>
+                                    <a class="dropdown-item" href="lista-canal.php">Listar Canais</a>
+                                    <a class="dropdown-item" href="form-edit-canal.php">Edição de Canais</a>
                                 </div>
                             </li>
                         </ul>
@@ -54,7 +61,12 @@ require 'init.php';
             </div>
             <div class="form-group">
                 <label for="canal">Canal: </label>
-                <input type="text" class="form-control col-sm" name="canal" id="canal" style="width:25%;" placeholder="Ex: HBO, Netflix,...">
+                <select class="form-control" name="canal" id="canal" required style="width:25%">
+                    <?php while($dados = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+
+                        <option value=" <?php echo $dados['id'] ?>" > <?php echo $dados['nomeCanal'] ?> </option>
+                    <?php endwhile; ?>
+                </select>
             </div>
             <div class="form-group">
                 <label for="ano">Ano de lançamento: </label>

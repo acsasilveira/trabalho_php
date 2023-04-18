@@ -1,24 +1,16 @@
 <?php
 require 'init.php';
 
-$id = isset($_GET['id']) ? (int) $_GET['id'] : null;
-
-if (empty($id))
-{
-    echo "ID para alteração não definido";
-    exit;
-}
-
 $PDO = db_connect();
-$sql = "SELECT nome, canal, ano, temporadas, avaliacao FROM Series WHERE id = :id";
+$sql = "SELECT nomeCanal FROM Canal WHERE id = :id";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
-$series = $stmt->fetch(PDO::FETCH_ASSOC);
+$canais = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!is_array($series))
+if (!is_array($canais))
 {
-    echo "Nenhuma série encontrada";
+    echo "Nenhuma canal encontrado!";
     exit;
 }
 ?>
@@ -27,7 +19,7 @@ if (!is_array($series))
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Edição de Séries</title>
+        <title>Edição de Canais</title>
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
         <script src="bootstrap/js/JQuery.js"></script>
         <script src="bootstrap/js/popper.js"></script>
@@ -52,40 +44,26 @@ if (!is_array($series))
                             <div class="dropdown-menu" aria-labelledby="dropdown10">
                                 <a class="dropdown-item" href="form-add.php">Cadastrar Série</a>
                                 <a class="dropdown-item" href="lista-series.php">Lista de Séries</a>
-                                <a class="dropdown-item" href="editar-as-listas-series.php">Edição de Séries</a>
+                                <a class="dropdown-item" href="form-edit-series.php">Edição de Séries</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Canais</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown10">
                                 <a class="dropdown-item" href="form-add-canal.php">Cadastrar Canal</a>
+                                <a class="dropdown-item" href="lista-canal.php">Listar Canais</a>
+                                <a class="dropdown-item" href="form-edit-canal.php">Edição de Canais</a>
                             </div>
                         </li>
                     </ul>
                 </div>
             </nav>
-            <h1 class="h1 text-center" style="margin-top: 20px">Editar Séries</h1>
-            <form action="edit.php" method="post">
+            <h1 class="h1 text-center" style="margin-top: 20px">Editar Canais</h1>
+            <form action="edit-series.php" method="post">
             <div class="form-group">
                 <label for="name">Nome: </label>
-                <input type="text" class="form-control col-sm" name="nome" id="nome" style="width:25%;" value="<?php echo $series['nome'] ?>">
+                <input type="text" class="form-control col-sm" name="nome" id="nome" style="width:25%;" value="<?php echo $series['nomeCanal'] ?>">
                     
-            </div>
-            <div class="form-group">
-                <label for="canal">Canal: </label>
-                <input type="text" class="form-control col-sm" name="canal" id="canal" style="width:25%;" value="<?php echo $series['canal'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="ano">Ano de lançamento: </label>
-                <input type="int" class="form-control col-sm" name="ano" id="ano" style="width:25%;" value="<?php echo $series['ano'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="temporadas">Quantidade de temporadas: </label>
-                <input type="int" class="form-control col-sm" name="temporadas" id="temporadas" style="width:25%;" value="<?php echo $series['temporadas'] ?>">
-            </div>
-            <div class="form-group">
-                <label for="avaliacao">Avaliação de 0 a 10:</label>
-                <input type="number" class="form-control col-sm" name="avaliacao" id="avaliacao" style="width:25%;" value="<?php echo $series['avaliacao'] ?>">
             </div>
             <input type="hidden" name="id" value="<?php echo $id ?>">
             <button type="submit" class="btn btn-primary">Alterar</button>

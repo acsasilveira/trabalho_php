@@ -1,31 +1,32 @@
 <?php
-require_once 'init.php';
-// abre a conexão
+require 'init.php';
+
 $PDO = db_connect();
-
-$sql_count = "SELECT COUNT(*) AS total FROM Series ORDER BY nome ASC";
 $sql = "SELECT Se.id, Se.nome, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca WHERE Se.canal_id = Ca.id";
-
-$stmt_count = $PDO->prepare($sql_count);
-$stmt_count->execute();
-$total = $stmt_count->fetchColumn();
-
 $stmt = $PDO->prepare($sql);
-$stmt->execute();
+$stmt-> execute();
+$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$series = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!is_array($series))
+{
+    echo "Nenhuma série encontrada";
+    exit;
+}
 ?>
+
 <!doctype html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title> Séries Assistidas</title>
-
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <script src="bootstrap/js/JQuery.js"></script>
-    <script src="bootstrap/js/popper.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
+        <title>Edição de Séries</title>
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="bootstrap/js/JQuery.js"></script>
+        <script src="bootstrap/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
     </head>
     <body>
-        <div class="container">
+    <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -57,34 +58,38 @@ $stmt->execute();
                     </ul>
                 </div>
             </nav>
-            <h1 class="h1 text-center" style="margin-top: 20px">Lista de Séries Assistidas</h1>
-            <p>Total de séries: <?php echo $total ?></p>
-            <?php if ($total > 0): ?>
-            <table class="table table-striped" width="50%">
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Canal</th>
-                        <th>Ano</th>
-                        <th>Temporadas</th>
-                        <th>Avaliação</th>
-                    </tr>
-                </thdead>
-            <tbody>
-                <?php while ($series = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                <tr>
-                    <td><?php echo $series['nome'] ?></td>
-                    <td><?php echo $series['nomeCanal'] ?></td>
-                    <td><?php echo $series['ano'] ?></td>
-                    <td><?php echo $series['temporadas'] ?></td>
-                    <td><?php echo $series['avaliacao'] ?></td>
-            </tr>
-            <?php endwhile; ?>
-            </tbody>
-            </table>
-            <?php else: ?>
-            <h4>Nenhuma série registrada<h4>
-            <?php endif; ?>
-        </div>
+            <h1 class="h1 text-center" style="margin-top: 20px">Editar Séries</h1>
+            <form action="edit-series.php" method="post">
+            <div class="form-group">
+                <label for="name">Nome: </label>
+                <input type="text" class="form-control col-sm" name="nome" id="nome" style="width:25%;" value="<?php echo $series['nome'] ?>">
+                    
+            </div>
+            <div class="form-group">
+                <label for="canal">Canal: </label>
+                <label for="canal">Canal: </label>
+                <select class="form-control" name="canal" id="canal" required style="width:25%">
+                    <?php while($dados = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
+
+                        <option value=" <?php echo $dados['id'] ?>" > <?php echo $dados['nomeCanal'] ?> </option>
+                    <?php endwhile; ?>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ano">Ano de lançamento: </label>
+                <input type="int" class="form-control col-sm" name="ano" id="ano" style="width:25%;" value="<?php echo $series['ano'] ?>">
+            </div>
+            <div class="form-group">
+                <label for="temporadas">Quantidade de temporadas: </label>
+                <input type="int" class="form-control col-sm" name="temporadas" id="temporadas" style="width:25%;" value="<?php echo $series['temporadas'] ?>">
+            </div>
+            <div class="form-group">
+                <label for="avaliacao">Avaliação de 0 a 10:</label>
+                <input type="number" class="form-control col-sm" name="avaliacao" id="avaliacao" style="width:25%;" value="<?php echo $series['avaliacao'] ?>">
+            </div>
+            <input type="hidden" name="id" value="<?php echo $id ?>">
+            <button type="submit" class="btn btn-primary">Alterar</button>
+            </form>
+    </div>
     </body>
 </html>

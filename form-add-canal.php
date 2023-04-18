@@ -33,13 +33,16 @@ require 'init.php';
                                 <div class="dropdown-menu" aria-labelledby="dropdown10">
                                     <a class="dropdown-item" href="form-add.php">Cadastrar Série</a>
                                     <a class="dropdown-item" href="lista-series.php">Lista de Séries</a>
-                                    <a class="dropdown-item" href="editar-as-listas-series.php">Edição de Séries</a>
+                                    <a class="dropdown-item" href="form-edit-series.php">Edição de Séries</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Canais</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown10">
                                     <a class="dropdown-item" href="form-add-canal.php">Cadastrar Canal</a>
+                                    <a class="dropdown-item" href="lista-canal.php">Listar Canais</a>
+                                    <a class="dropdown-item" href="form-edit-canal.php">Edição de Canais</a>
+                                
                                 </div>
                             </li>
                         </ul>

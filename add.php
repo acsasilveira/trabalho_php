@@ -17,10 +17,10 @@ if ($avaliacao > 10 || $avaliacao < 0)
     echo "A avaliação deve ser feita apenas entre 0 a 10!";
 }
 $PDO = db_connect();
-$sql = "INSERT INTO Series(nome, canal, ano, temporadas, avaliacao) VALUES(:nome, :canal, :ano, :temporadas, :avaliacao)";
+$sql = "INSERT INTO Series(nome, canal_id, ano, temporadas, avaliacao) VALUES(:nome, :canal_id, :ano, :temporadas, :avaliacao)";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':nome', $nome);
-$stmt->bindParam(':canal', $canal);
+$stmt->bindParam(':canal_id', $canal);
 $stmt->bindParam(':ano', $ano);
 $stmt->bindParam(':temporadas', $temporadas);
 $stmt->bindParam(':avaliacao', $avaliacao);

@@ -9,7 +9,7 @@ if (empty($nome))
     exit;
 }
 $PDO = db_connect();
-$sql = "INSERT INTO Canal(nome) VALUES(:nome)";
+$sql = "INSERT INTO Canal(nomeCanal) VALUES(:nome)";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':nome', $nome);
 if($stmt -> execute())
