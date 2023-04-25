@@ -14,12 +14,11 @@ $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':nome', $nome);
 if($stmt -> execute())
 {
-    header('Location: index.php');
+    header('Location: index.html');
 }
 else
 {
-    echo "Erro ao cadastrar";
-    print_r($stmt->errorInfo());
+    header('Location: msgErro.html');
 }
 
 ?>

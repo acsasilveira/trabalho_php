@@ -27,11 +27,10 @@ $stmt->bindParam(':avaliacao', $avaliacao);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 if($stmt -> execute())
 {
-    header('Location: index.php');
+    header('Location: index.html');
 }
 else
 {
-    echo "Erro ao cadastrar";
-    print_r($stmt->errorInfo());
+    header('Location: msgErro.html');
 }
 ?>

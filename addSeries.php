@@ -26,12 +26,11 @@ $stmt->bindParam(':temporadas', $temporadas);
 $stmt->bindParam(':avaliacao', $avaliacao);
 if($stmt -> execute())
 {
-    header('Location: index.php');
+    header('Location: index.html');
 }
 else
 {
-    echo "Erro ao cadastrar";
-    print_r($stmt->errorInfo());
+    header('Location: msgErro.html');
 }
 
 ?>

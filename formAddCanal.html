@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>S</title>
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="bootstrap/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.js"></script>
+        <script src="bootstrap/js/JQuery.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(function(){
+                    $("#menu").load("navbar.html");
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="menu"></div>
+            <h1 class="h1 text-center" style="margin-top: 20px">Cadastro de Canais</h1>
+        </div>
+        <div class="container">
+            <form action="add-canal.php" method="post">
+            <div class="form-group">
+                <label for="name">Nome: </label>
+                <input type="text" class="form-control col-sm" name="nome" id="nome" style="width:25%;" placeholder="Digite o nome...">
+            </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

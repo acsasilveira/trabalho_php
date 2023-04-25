@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navbar</title>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="estilo.css" rel="stylesheet">
     <script src="bootstrap/js/popper.js" ></script>
     <script src="bootstrap/js/bootstrap.js" ></script>
     <script src="bootstrap/js/JQuery.js" ></script>
@@ -17,27 +16,29 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" rel="home" href="#">
-            <img styles="max-width:100px; margin-top: -7px;" src="">
+            <img style="max-width: 70px;" src="./img/logo.png">
         </a>
         <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home <span class="sr-only">(atual)</span></a>
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(atual)</span></a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Séries</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown10">
-                        <a class="dropdown-item" href="form-add.php">Cadastrar Série</a>
-                        <a class="dropdown-item" href="lista-series.php">Lista de Séries</a>
-                        <a class="dropdown-item" href="editar-as-listas-series.php">Edição de Séries</a>
+                        <a class="dropdown-item" href="formAddSeries.php">Cadastrar Série</a>
+                        <a class="dropdown-item" href="listarSeries.php">Lista de Séries</a>
+                        <a class="dropdown-item" href="formEditSeries.php">Edição de Séries</a>
+                        <a class="dropdown-item" href="pesquisarSerie.html">Pesquisar Séries</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Canais</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown10">
-                        <a class="dropdown-item" href="form-add-canal.php">Cadastrar Canal</a>
-                        <a class="dropdown-item" href="lista-canal.php">Listar Canais</a>
-                        <a class="dropdown-item" href="form-edit-canal.php">Edição de Canais</a>
+                        <a class="dropdown-item" href="formAddCanal.html">Cadastrar Canal</a>
+                        <a class="dropdown-item" href="listarCanal.php">Listar Canais</a>
+                        <a class="dropdown-item" href="formEditCanal.php">Edição de Canais</a>
+                        <a class="dropdown-item" href="pesquisarCanal.html">Pesquisar Canais</a>
                     </div>
                 </li>
             </ul>
