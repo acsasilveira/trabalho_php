@@ -2,17 +2,23 @@
 require 'init.php';
 
 $PDO = db_connect();
-$sql = "SELECT nomeCanal FROM Canal WHERE id = :id";
+$sql = "SELECT id, nomeCanal FROM Canal WHERE id = :id";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
-$canais = $stmt->fetch(PDO::FETCH_ASSOC);
+$canal = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if (!is_array($canais))
+/*if (!is_array($canais))
 {
+    echo "<html>";
+    echo "<head>";
+    echo "<title>Edição de Canais</title>";
+    echo "<link href='bootstrap/css/bootstrap.css' rel='stylesheet'>";
+
+    echo "</html>";
     echo "Nenhuma canal encontrado!";
     exit;
-}
+}*/
 ?>
 
 <!doctype html>
@@ -36,15 +42,15 @@ if (!is_array($canais))
         <div class="container">
             <div id="menu"></div>
             <h1 class="h1 text-center" style="margin: 20px">Editar Canal</h1>
-        </div>
             <form action="editCanal.php" method="post">
             <div class="form-group">
                 <label for="nomeCanal">Nome: </label>
-                <input type="text" class="form-control col-sm" name="nomeCanal" id="nomeCanal" style="width:25%;" value="<?php echo $canais['nomeCanal'] ?>">
+                <input type="text" class="form-control col-sm" name="nomeCanal" id="nomeCanal" style="width: 25%;" value="<?php echo $canal['nomeCanal'] ?>">
                     
             </div>
             <input type="hidden" name="id" value="<?php echo $id ?>">
-            <button type="submit" class="btn btn-primary">Alterar</button>
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Alterar</button>
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="index.html">Cancelar</a>
             </form>
     </div>
     </body>

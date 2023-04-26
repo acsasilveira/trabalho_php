@@ -1,12 +1,21 @@
 <?php
 require 'init.php';
 
+$id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+if(empty($id))
+{
+    header('Location: msgErro.html');
+}
+
 $PDO = db_connect();
-$sql = "SELECT Se.id, Se.nome, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca WHERE Se.canal_id = Ca.id";
+$sql = "SELECT id, nome, canal_id, ano, temporadas, avaliacao FROM Series WHERE id = :id";
 $stmt = $PDO->prepare($sql);
-$stmt-> execute();
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+$stmt-> execute();
 $series = $stmt->fetch(PDO::FETCH_ASSOC);
+$sqlcanais="SELECT id, nomeCanal FROM Canal ORDER BY nomeCanal ASC";
+$stmtcanais = $PDO->prepare($sqlcanais);
+$stmtcanais-> execute();
 
 if (!is_array($series))
 {
@@ -37,6 +46,7 @@ if (!is_array($series))
             <div id="menu"></div>
             <h1 class="h1 text-center" style="margin: 20px">Editar Série</h1>
         </div>
+        <div class="container">
             <form action="editSeries.php" method="post">
             <div class="form-group">
                 <label for="name">Nome: </label>
@@ -45,11 +55,13 @@ if (!is_array($series))
             </div>
             <div class="form-group">
                 <label for="canal">Canal: </label>
-                <label for="canal">Canal: </label>
                 <select class="form-control" name="canal" id="canal" required style="width:25%">
-                    <?php while($dados = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-
-                        <option value=" <?php echo $dados['id'] ?>" > <?php echo $dados['nomeCanal'] ?> </option>
+                    <?php while($dados = $stmtcanais->fetch(PDO::FETCH_ASSOC)) : ?>
+                        <?php if($dados['id'] == $serie['canal_id']):?>
+                           <option selected="selected" value=" <?php echo $dados['id'] ?>" > <?php echo $dados['nomeCanal'] ?> </option>
+                        <?php else: ?>
+                            <option value=" <?php echo $dados['id'] ?>" > <?php echo $dados['nomeCanal'] ?> </option>
+                        <?php endif; ?>
                     <?php endwhile; ?>
                 </select>
             </div>
@@ -65,8 +77,9 @@ if (!is_array($series))
                 <label for="avaliacao">Avaliação de 0 a 10:</label>
                 <input type="number" class="form-control col-sm" name="avaliacao" id="avaliacao" style="width:25%;" value="<?php echo $series['avaliacao'] ?>">
             </div>
-            <input type="hidden" name="id" value="<?php echo $id ?>">
-            <button type="submit" class="btn btn-primary">Alterar</button>
+            <input type="hidden" name="id" value="<?php echo $series['id'] ?>">
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Alterar</button>
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="index.html">Cancelar</a>
             </form>
         </div>
     </body>

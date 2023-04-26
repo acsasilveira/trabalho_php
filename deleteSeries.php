@@ -13,12 +13,11 @@ $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 if($stmt -> execute())
 {
-    header('Location: index.php');
+    header('Location: msgSucesso.html');
 }
 else
 {
-    echo "Erro ao remover";
-    print_r($stmt->errorInfo());
+    header('Location: msgErro.html');
 }
 
 ?>

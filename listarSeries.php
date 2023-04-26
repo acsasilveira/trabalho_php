@@ -4,7 +4,7 @@ require_once 'init.php';
 $PDO = db_connect();
 
 $sql_count = "SELECT COUNT(*) AS total FROM Series ORDER BY nome ASC";
-$sql = "SELECT Se.id, Se.nome, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca WHERE Se.canal_id = Ca.id";
+$sql = "SELECT Se.id, Se.nome, Se.ano, Se.temporadas, Se.avaliacao, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca WHERE Se.canal_id = Ca.id ORDER BY Se.nome ASC";
 
 $stmt_count = $PDO->prepare($sql_count);
 $stmt_count->execute();
@@ -31,20 +31,19 @@ $stmt->execute();
         </script>
     </head>
     <body>
-    <div class="container">
+        <div class="container">
             <div id="menu"></div>
             <h1 class="h1 text-center" style="margin-top: 20px">Lista de Séries Assistidas</h1>
-        </div>
             <p>Total de séries: <?php echo $total ?></p>
             <?php if ($total > 0): ?>
-            <table class="table table-striped" width="50%">
+            <table class="table table-striped" style="width: 70%">
                 <thead>
                     <tr>
-                        <th>Título</th>
-                        <th>Canal</th>
-                        <th>Ano</th>
-                        <th>Temporadas</th>
-                        <th>Avaliação</th>
+                        <th scope="col" >Título</th>
+                        <th scope="col">Canal</th>
+                        <th scope="col">Ano</th>
+                        <th scope="col">Temporadas</th>
+                        <th scope="col">Avaliação</th>
                     </tr>
                 </thdead>
             <tbody>
@@ -55,6 +54,11 @@ $stmt->execute();
                     <td><?php echo $series['ano'] ?></td>
                     <td><?php echo $series['temporadas'] ?></td>
                     <td><?php echo $series['avaliacao'] ?></td>
+                    <td>
+                        <a class="btn btn-outline-primary my-2 my-sm-0" href="formEditSeries.php?id=<?php echo $series['id'] ?>">Editar</a>
+                        <a class="btn btn-outline-danger my-2 my-sm-0" href="deleteSeries.php?id=<?php echo $series['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
+
+                    </td>
             </tr>
             <?php endwhile; ?>
             </tbody>

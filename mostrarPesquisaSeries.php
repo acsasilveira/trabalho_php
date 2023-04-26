@@ -7,7 +7,7 @@
     }
     $pesquisa = '%' . $trecho . '%';
     $PDO = db_connect();
-    $sql = "SELECT Se.id, Se.nome, Se.canal_id, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca on Se.canal_id = Ca.id WhHERE upper(nome) like :trecho ORDER BY Se.nome ASC";
+    $sql = "SELECT Se.id, Se.nome, Se.canal_id, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca on Se.canal_id = Ca.id WHERE upper(Se.nome) like :trecho ORDER BY Se.nome ASC";
     $stmt = $PDO->prepare($sql);
     $stmt->execute([':trecho' => $pesquisa]);
 ?>
