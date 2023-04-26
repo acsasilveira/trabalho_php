@@ -1,6 +1,11 @@
 <?php
 require 'init.php';
 
+$id = isset($_GET['id']) ? (int) $_GET['id'] : null;
+if(empty($id))
+{
+    header('Location: msgErro.html');
+}
 $PDO = db_connect();
 $sql = "SELECT id, nomeCanal FROM Canal WHERE id = :id";
 $stmt = $PDO->prepare($sql);

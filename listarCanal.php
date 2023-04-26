@@ -18,7 +18,7 @@ $stmt->execute();
     <head>
         <head>
         <meta charset="utf-8">
-        <title>Canais</title>
+        <title>Lista | Séries Assistidas</title>
 
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
         <script src="bootstrap/js/popper.js"></script>

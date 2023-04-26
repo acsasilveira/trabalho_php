@@ -55,7 +55,7 @@ if (!is_array($series))
             </div>
             <div class="form-group">
                 <label for="canal">Canal: </label>
-                <select class="form-control" name="canal" id="canal" required style="width:25%">
+                <select class="form-control" name="canal" id="canal" style="width:25%">
                     <?php while($dados = $stmtcanais->fetch(PDO::FETCH_ASSOC)) : ?>
                         <?php if($dados['id'] == $serie['canal_id']):?>
                            <option selected="selected" value=" <?php echo $dados['id'] ?>" > <?php echo $dados['nomeCanal'] ?> </option>

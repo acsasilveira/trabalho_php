@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canais</title>
+    <title>Pesquisa | Séries Assistidas</title>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="bootstrap/js/popper.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
@@ -50,7 +50,7 @@
                         <td><?php echo $canal['nomeCanal'] ?></td>
                         <td>
                             <a class="btn btn-primary" href="formEditCanal.php?id=<?php echo $canal['id'] ?>">Editar</a>
-                            <a class="btn btn-danger" href="delete.php?id=<?php echo $canal['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
+                            <a class="btn btn-danger" href="deleteCanais.php?id=<?php echo $canal['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

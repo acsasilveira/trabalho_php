@@ -17,7 +17,7 @@ if ($avaliacao > 10 || $avaliacao < 0)
     exit;
 }
 $PDO = db_connect();
-$sql = "UPDATE Series SET nome = :nome, canal = :canal, ano = :ano, temporadas = :temporadas, avaliacao = :avaliacao WHERE id = :id";
+$sql = "UPDATE Series SET nome = :nome, canal_id = :canal, ano = :ano, temporadas = :temporadas, avaliacao = :avaliacao WHERE id = :id";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':nome', $nome);
 $stmt->bindParam(':canal', $canal);
