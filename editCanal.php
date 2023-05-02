@@ -14,7 +14,7 @@ $stmt->bindParam(':nomeCanal', $nomeCanal);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 if($stmt -> execute())
 {
-    header('Location: index.html');
+    header('Location: msgSucesso.html');
 }
 else
 {

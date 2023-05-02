@@ -5,7 +5,7 @@ $nome = isset($_POST['nome']) ? $_POST['nome'] : null;
 // validação
 if (empty($nome))
 {
-    echo "oi Por gentilza, preencha todos os campos!";
+    echo "Por gentilza, preencha todos os campos!";
     exit;
 }
 $PDO = db_connect();
@@ -14,7 +14,7 @@ $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':nome', $nome);
 if($stmt -> execute())
 {
-    header('Location: index.html');
+    header('Location: msgSucesso.html');
 }
 else
 {

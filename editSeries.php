@@ -13,24 +13,26 @@ if ((empty($nome)) || (empty($canal)) || (empty($ano)) || (empty($temporadas)) |
 }
 if ($avaliacao > 10 || $avaliacao < 0)
 {
-    echo "A avaliação deve ser feita apenas entre 0 a 10!";
-    exit;
-}
-$PDO = db_connect();
-$sql = "UPDATE Series SET nome = :nome, canal_id = :canal, ano = :ano, temporadas = :temporadas, avaliacao = :avaliacao WHERE id = :id";
-$stmt = $PDO->prepare($sql);
-$stmt->bindParam(':nome', $nome);
-$stmt->bindParam(':canal', $canal);
-$stmt->bindParam(':ano', $ano);
-$stmt->bindParam(':temporadas', $temporadas);
-$stmt->bindParam(':avaliacao', $avaliacao);
-$stmt->bindParam(':id', $id, PDO::PARAM_INT);
-if($stmt -> execute())
-{
-    header('Location: index.html');
+    header('Location: msgErro.html');
 }
 else
 {
-    header('Location: msgErro.html');
+    $PDO = db_connect();
+    $sql = "UPDATE Series SET nome = :nome, canal_id = :canal, ano = :ano, temporadas = :temporadas, avaliacao = :avaliacao WHERE id = :id";
+    $stmt = $PDO->prepare($sql);
+    $stmt->bindParam(':nome', $nome);
+    $stmt->bindParam(':canal', $canal);
+    $stmt->bindParam(':ano', $ano);
+    $stmt->bindParam(':temporadas', $temporadas);
+    $stmt->bindParam(':avaliacao', $avaliacao);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    if($stmt -> execute())
+    {
+        header('Location: msgSucesso.html');
+    }
+    else
+    {
+        header('Location: msgErro.html');
+    }
 }
 ?>
