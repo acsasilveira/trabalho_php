@@ -42,6 +42,9 @@
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
+                    <th scope="col">
+                        <a class="btn btn-secondary" href="./pesquisarCanal.html">Refazer Pesquisa</a>
+                    </th>
                 </tr>
             </thead>
             <tbody>

@@ -46,6 +46,10 @@
                     <th scope="col">Ano de Lançamento</th>
                     <th scope="col">Temporadas</th>
                     <th scope="col">Avaliação</th>
+                    <th scope="col">
+                        <a class="btn btn-secondary" href="./pesquisarSerie.html">Refazer Pesquisa</a>
+                    </th>
+                    
                 </tr>
             </thead>
             <tbody>
