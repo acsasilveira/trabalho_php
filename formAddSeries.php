@@ -59,7 +59,7 @@ $stmt-> execute();
                 <input type="int" class="form-control col-sm" name="avaliacao" id="avaliacao" style="width:25%;" placeholder="Entre 0 e 10...">
             </div>
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Cadastrar</button>
-                <a class="btn btn-outline-primary my-2 my-sm-0" href="index.html">Cancelar</a>
+                <a class="btn btn-outline-primary my-2 my-sm-0" href="index.html" onclick="return confirm('Tem certeza que deseja cancelar? Se você sair, seu progresso será perdido...');">Cancelar</a>
                 
 
             </form>

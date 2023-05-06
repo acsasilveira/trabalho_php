@@ -79,7 +79,7 @@ if (!is_array($series))
             </div>
             <input type="hidden" name="id" value="<?php echo $series['id'] ?>">
             <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Alterar</button>
-            <a class="btn btn-outline-primary my-2 my-sm-0" href="index.html">Cancelar</a>
+            <a class="btn btn-outline-primary my-2 my-sm-0" href="index.html" onclick="return confirm('Tem certeza que deseja cancelar? Se você sair, seu progresso será perdido...');">Cancelar</a>
             </form>
         </div>
     </body>
