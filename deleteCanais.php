@@ -15,7 +15,7 @@ $stmt_serie->execute();
 $total = $stmt_serie->fetchColumn();
 if ($total > 0)
 {
-    header('Location: msgErro.html');
+    header('Location: msgErroDelete.html');
 }
 else
 {
