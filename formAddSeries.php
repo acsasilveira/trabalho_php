@@ -1,10 +1,10 @@
 <?php
-require_once 'init.php';
+/*require_once 'init.php';
 $PDO = db_connect();
 $sql = "SELECT id, nomeCanal FROM Canal ORDER BY nomeCanal ASC";
 $stmt = $PDO->prepare($sql);
 $stmt-> execute();
-
+*/
 ?>
 
 <!DOCTYPE html>
