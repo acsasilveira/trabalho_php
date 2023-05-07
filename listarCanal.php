@@ -12,6 +12,7 @@ $total = $stmt_count->fetchColumn();
 
 $stmt = $PDO->prepare($sql);
 $stmt->execute();
+
 ?>
 <!doctype html>
 <html>
@@ -27,7 +28,7 @@ $stmt->execute();
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("navbar.html");
+                    $("#menu").load("navbarCanal.html");
                 });
             });
         </script>
@@ -35,13 +36,16 @@ $stmt->execute();
     <body>
         <div class="container">
             <div id="menu"></div>
-            <h1 class="h1 text-center" style="margin-top: 20px">Lista de Canais</h1>
+            <h1 class="h1 text-center" style="margin-top: 120px">Lista de Canais</h1>
             <p>Total de canais: <?php echo $total ?></p>
             <?php if ($total > 0): ?>
             <table class="table table-striped" style="width: 50%">
                 <thead>
                     <tr>
                         <th scope="col">Nome</th>
+                        <th scope="col">
+                            <a class="btn btn-secondary" href="./formAddCanal.php">Cadastrar +</a>
+                        </th>
                     </tr>
                 </thdead>
             <tbody>

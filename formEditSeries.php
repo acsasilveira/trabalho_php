@@ -22,6 +22,7 @@ if (!is_array($series))
     echo "Nenhuma série encontrada";
     exit;
 }
+
 ?>
 
 <!doctype html>
@@ -44,7 +45,7 @@ if (!is_array($series))
     <body>
         <div class="container">
             <div id="menu"></div>
-            <h1 class="h1 text-center" style="margin: 20px">Editar Série</h1>
+            <h1 class="h1 text-center" style="margin-top: 120px">Edição de Série</h1>
         </div>
         <div class="container">
             <form action="editSeries.php" method="post">

@@ -1,15 +1,16 @@
 <?php
-    require 'init.php';
-    $trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
-    if (empty($trecho))
-    {
-        header('Location: msgErro.html');
-    }
-    $pesquisa = '%' . $trecho . '%';
-    $PDO = db_connect();
-    $sql = "SELECT Se.id, Se.nome, Se.canal_id, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca on Se.canal_id = Ca.id WHERE upper(Se.nome) like :trecho ORDER BY Se.nome ASC";
-    $stmt = $PDO->prepare($sql);
-    $stmt->execute([':trecho' => $pesquisa]);
+require 'init.php';
+$trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
+if (empty($trecho))
+{
+    header('Location: msgErro.html');
+}
+$pesquisa = '%' . $trecho . '%';
+$PDO = db_connect();
+$sql = "SELECT Se.id, Se.nome, Se.canal_id, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca on Se.canal_id = Ca.id WHERE upper(Se.nome) like :trecho ORDER BY Se.nome ASC";
+$stmt = $PDO->prepare($sql);
+$stmt->execute([':trecho' => $pesquisa]);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,9 +36,7 @@
             <div id="menu"></div>
     </div>
     <div class="container">
-        <div class="jumbotron">
-                <p class="h3 text-center">Séries cadastradas encontradas na pesquisa</p>
-        </div>
+        <p class="h3 text-center" style="margin-top: 120px">Séries Encontradas na Pesquisa</p>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -47,7 +46,7 @@
                     <th scope="col">Temporadas</th>
                     <th scope="col">Avaliação</th>
                     <th scope="col">
-                        <a class="btn btn-secondary" href="./pesquisarSerie.html">Refazer Pesquisa</a>
+                        <a class="btn btn-secondary" href="./pesquisarSerie.html" onclick="return confirm('Tem certeza que deseja refazer a pesquisa?');">Refazer Pesquisa</a>
                     </th>
                     
                 </tr>

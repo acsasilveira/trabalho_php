@@ -13,17 +13,6 @@ $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
 $canal = $stmt->fetch(PDO::FETCH_ASSOC);
 
-/*if (!is_array($canais))
-{
-    echo "<html>";
-    echo "<head>";
-    echo "<title>Edição de Canais</title>";
-    echo "<link href='bootstrap/css/bootstrap.css' rel='stylesheet'>";
-
-    echo "</html>";
-    echo "Nenhuma canal encontrado!";
-    exit;
-}*/
 ?>
 
 <!doctype html>
@@ -46,7 +35,7 @@ $canal = $stmt->fetch(PDO::FETCH_ASSOC);
     <body>
         <div class="container">
             <div id="menu"></div>
-            <h1 class="h1 text-center" style="margin: 20px">Editar Canal</h1>
+            <h1 class="h1 text-center" style="margin-top: 120px">Edição de Canal</h1>
             <form action="editCanal.php" method="post">
             <div class="form-group">
                 <label for="nomeCanal">Nome: </label>

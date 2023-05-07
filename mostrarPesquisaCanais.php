@@ -1,15 +1,17 @@
 <?php
-    require 'init.php';
-    $trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
-    if (empty($trecho))
-    {
-        header('Location: msgErro.html');
-    }
-    $pesquisa = '%' . $trecho . '%';
-    $PDO = db_connect();
-    $sql = "SELECT id, nomeCanal FROM Canal WHERE upper(nomeCanal) like :trecho ORDER BY nomeCanal ASC";
-    $stmt = $PDO->prepare($sql);
-    $stmt->execute([':trecho' => $pesquisa]);
+
+require 'init.php';
+$trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
+if (empty($trecho))
+{
+    header('Location: msgErro.html');
+}
+$pesquisa = '%' . $trecho . '%';
+$PDO = db_connect();
+$sql = "SELECT id, nomeCanal FROM Canal WHERE upper(nomeCanal) like :trecho ORDER BY nomeCanal ASC";
+$stmt = $PDO->prepare($sql);
+$stmt->execute([':trecho' => $pesquisa]);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,15 +37,13 @@
             <div id="menu"></div>
     </div>
     <div class="container">
-        <div class="jumbotron">
-                <p class="h3 text-center">Canais cadastrados encontrados na pesquisa</p>
-        </div>
+        <p class="h3 text-center" style="margin-top: 120px">Canais Encontrados na Pesquisa</p>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">
-                        <a class="btn btn-secondary" href="./pesquisarCanal.html">Refazer Pesquisa</a>
+                        <a class="btn btn-secondary" href="./pesquisarCanal.html" onclick="return confirm('Tem certeza que deseja refazer a pesquisa?');">Refazer Pesquisa</a>
                     </th>
                 </tr>
             </thead>

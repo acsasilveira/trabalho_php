@@ -10,22 +10,20 @@
     <script src="bootstrap/js/bootstrap.js"></script>
     <script src="bootstrap/js/JQuery.js"></script>
 </head>
+<style>
+    body {
+            background-image: url('./img/fundo.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+</style>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg rounded">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">
-                <img style="max-width: 70px;" src="./img/logo.png">
-            </a>
-            <div class="alert alert-danger" role="alert" style="margin-top: 20px; margin-left: 30px;">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container">
+            <div class="alert alert-danger" role="alert" style="margin-top: 10px;">
                 Ocorreu um erro. Esta operação não pode ser realizada! <a href="index.html" class="alert-link">clique aqui</a> para retornar à página inicial.
             </div>
-        </nav>
-        <div>
-            <img src="./img/fundo.png"/>
         </div>
-    </div>
+    </nav>
 </body>
 </html>

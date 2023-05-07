@@ -29,7 +29,7 @@ $stmt-> execute();
     <body>
         <div class="container">
         <div id="menu"></div>
-            <h1 class="h1 text-center" style="margin-top: 20px">Cadastro das Séries Assistidas</h1>
+            <h1 class="h1 text-center" style="margin-top: 120px">Cadastro das Séries Assistidas</h1>
         </div>
         <div class="container">
             <form action="addSeries.php" method="post">
