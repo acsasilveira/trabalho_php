@@ -8,16 +8,16 @@ if ((empty($nomeCanal)) || (empty($id)))
     exit;
 }
 $PDO = db_connect();
-$sql = "UPDATE Canal SET nomeCanal = :nomeCanal WHERE id = :id";
+$sql = "UPDATE canal SET nomeCanal = :nomeCanal WHERE id = :id";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':nomeCanal', $nomeCanal);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 if($stmt -> execute())
 {
-    header('Location: msgSucesso.html');
+    header('Location: ./msgSucesso/msgSucessoEdicaoCanal.html');
 }
 else
 {
-    header('Location: msgErro.html');
+    header('Location: ./msgErro/msgErro.html');
 }
 ?>

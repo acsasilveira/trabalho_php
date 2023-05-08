@@ -9,16 +9,16 @@ if (empty($nome))
     exit;
 }
 $PDO = db_connect();
-$sql = "INSERT INTO Canal(nomeCanal) VALUES(:nome)";
+$sql = "INSERT INTO canal(nomeCanal) VALUES(:nome)";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':nome', $nome);
 if($stmt -> execute())
 {
-    header('Location: msgSucesso.html');
+    header('Location: ./msgSucesso/msgSucessoCadastroCanal.html');
 }
 else
 {
-    header('Location: msgErro.html');
+    header('Location: ./msgErro/msgErro.html');
 }
 
 ?>

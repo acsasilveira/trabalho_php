@@ -4,11 +4,11 @@ require 'init.php';
 $trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
 if (empty($trecho))
 {
-    header('Location: msgErro.html');
+    header('Location: ./msgErro/msgErro.html');
 }
 $pesquisa = '%' . $trecho . '%';
 $PDO = db_connect();
-$sql = "SELECT id, nomeCanal FROM Canal WHERE upper(nomeCanal) like :trecho ORDER BY nomeCanal ASC";
+$sql = "SELECT id, nomeCanal FROM canal WHERE upper(nomeCanal) like :trecho ORDER BY nomeCanal ASC";
 $stmt = $PDO->prepare($sql);
 $stmt->execute([':trecho' => $pesquisa]);
 
@@ -27,7 +27,7 @@ $stmt->execute([':trecho' => $pesquisa]);
     <script type="text/javascript">
         $(document).ready(function(){
             $(function(){
-                $("#menu").load("navbar.html");
+                $("#menu").load("./navbar/navbar.html");
             });
         });
     </script>

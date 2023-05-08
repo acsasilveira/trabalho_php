@@ -7,7 +7,7 @@ if(empty($id))
     header('Location: msgErro.html');
 }
 $PDO = db_connect();
-$sql = "SELECT id, nomeCanal FROM Canal WHERE id = :id";
+$sql = "SELECT id, nomeCanal FROM canal WHERE id = :id";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
@@ -27,7 +27,7 @@ $canal = $stmt->fetch(PDO::FETCH_ASSOC);
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("navbar.html");
+                    $("#menu").load("./navbar/navbar.html");
                 });
             });
         </script>

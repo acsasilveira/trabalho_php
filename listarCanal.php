@@ -3,8 +3,8 @@ require_once 'init.php';
 // abre a conexão
 $PDO = db_connect();
 
-$sql_count = "SELECT COUNT(*) AS total FROM Canal ORDER BY nomeCanal ASC";
-$sql = "SELECT id, nomeCanal FROM Canal ORDER BY nomeCanal ASC";
+$sql_count = "SELECT COUNT(*) AS total FROM canal ORDER BY nomeCanal ASC";
+$sql = "SELECT id, nomeCanal FROM canal ORDER BY nomeCanal ASC";
 
 $stmt_count = $PDO->prepare($sql_count);
 $stmt_count->execute();
@@ -28,7 +28,7 @@ $stmt->execute();
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("navbarCanal.html");
+                    $("#menu").load("./navbar/navbarCanal.html");
                 });
             });
         </script>
@@ -44,7 +44,7 @@ $stmt->execute();
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">
-                            <a class="btn btn-secondary" href="./formAddCanal.php">Cadastrar +</a>
+                            <a class="btn btn-secondary" href="./formAddCanal.html">Cadastrar +</a>
                         </th>
                     </tr>
                 </thdead>

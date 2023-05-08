@@ -3,8 +3,8 @@ require_once 'init.php';
 // abre a conexão
 $PDO = db_connect();
 
-$sql_count = "SELECT COUNT(*) AS total FROM Series ORDER BY nome ASC";
-$sql = "SELECT Se.id, Se.nome, Se.ano, Se.temporadas, Se.avaliacao, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca WHERE Se.canal_id = Ca.id ORDER BY Se.nome ASC";
+$sql_count = "SELECT COUNT(*) AS total FROM series ORDER BY nome ASC";
+$sql = "SELECT Se.id, Se.nome, Se.ano, Se.temporadas, Se.avaliacao, Ca.nomeCanal FROM series as Se INNER JOIN canal as Ca WHERE Se.canal_id = Ca.id ORDER BY Se.nome ASC";
 
 $stmt_count = $PDO->prepare($sql_count);
 $stmt_count->execute();
@@ -26,7 +26,7 @@ $stmt->execute();
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("navbarIndex.html");
+                    $("#menu").load("./navbar/navbarIndex.html");
                 });
             });
         </script>

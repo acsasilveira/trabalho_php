@@ -8,12 +8,12 @@ if(empty($id))
 }
 
 $PDO = db_connect();
-$sql = "SELECT id, nome, canal_id, ano, temporadas, avaliacao FROM Series WHERE id = :id";
+$sql = "SELECT id, nome, canal_id, ano, temporadas, avaliacao FROM series WHERE id = :id";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt-> execute();
 $series = $stmt->fetch(PDO::FETCH_ASSOC);
-$sqlcanais="SELECT id, nomeCanal FROM Canal ORDER BY nomeCanal ASC";
+$sqlcanais="SELECT id, nomeCanal FROM canal ORDER BY nomeCanal ASC";
 $stmtcanais = $PDO->prepare($sqlcanais);
 $stmtcanais-> execute();
 
@@ -37,7 +37,7 @@ if (!is_array($series))
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("navbar.html");
+                    $("#menu").load("./navbar/navbar.html");
                 });
             });
         </script>

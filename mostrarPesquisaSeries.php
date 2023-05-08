@@ -3,11 +3,11 @@ require 'init.php';
 $trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
 if (empty($trecho))
 {
-    header('Location: msgErro.html');
+    header('Location: ./msgErro/msgErro.html');
 }
 $pesquisa = '%' . $trecho . '%';
 $PDO = db_connect();
-$sql = "SELECT Se.id, Se.nome, Se.canal_id, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM Series as Se INNER JOIN Canal as Ca on Se.canal_id = Ca.id WHERE upper(Se.nome) like :trecho ORDER BY Se.nome ASC";
+$sql = "SELECT Se.id, Se.nome, Se.canal_id, Se.ano, Se.temporadas, Se.avaliacao, Ca.id, Ca.nomeCanal FROM series as Se INNER JOIN canal as Ca on Se.canal_id = Ca.id WHERE upper(Se.nome) like :trecho ORDER BY Se.nome ASC";
 $stmt = $PDO->prepare($sql);
 $stmt->execute([':trecho' => $pesquisa]);
 
@@ -26,7 +26,7 @@ $stmt->execute([':trecho' => $pesquisa]);
     <script type="text/javascript">
         $(document).ready(function(){
             $(function(){
-                $("#menu").load("navbar.html");
+                $("#menu").load("./navbar/navbar.html");
             });
         });
     </script>

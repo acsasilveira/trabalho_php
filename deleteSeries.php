@@ -8,16 +8,16 @@ if(empty($id))
 }
 
 $PDO = db_connect();
-$sql = "DELETE FROM Series WHERE id = :id";
+$sql = "DELETE FROM series WHERE id = :id";
 $stmt = $PDO->prepare($sql);
 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 if($stmt -> execute())
 {
-    header('Location: msgSucesso.html');
+    header('Location: ./msgSucesso/msgSucesso.html');
 }
 else
 {
-    header('Location: msgErro.html');
+    header('Location: ./msgErro/msgErro.html');
 }
 
 ?>

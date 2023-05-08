@@ -13,12 +13,12 @@ if ((empty($nome)) || (empty($canal)) || (empty($ano)) || (empty($temporadas)) |
 }
 if ($avaliacao > 10 || $avaliacao < 0)
 {
-    header('Location: msgErro.html');
+    header('Location: ./msgErro/msgErroAvaliacaoEdit.html');
 }
 else
 {
     $PDO = db_connect();
-    $sql = "UPDATE Series SET nome = :nome, canal_id = :canal, ano = :ano, temporadas = :temporadas, avaliacao = :avaliacao WHERE id = :id";
+    $sql = "UPDATE series SET nome = :nome, canal_id = :canal, ano = :ano, temporadas = :temporadas, avaliacao = :avaliacao WHERE id = :id";
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':canal', $canal);
@@ -28,11 +28,11 @@ else
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     if($stmt -> execute())
     {
-        header('Location: msgSucesso.html');
+        header('Location: ./msgSucesso/msgSucessoEdicaoSerie.html');
     }
     else
     {
-        header('Location: msgErro.html');
+        header('Location: ./msgErro/msgErro.html');
     }
 }
 ?>

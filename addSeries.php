@@ -16,7 +16,7 @@ if ((empty($nome)) || (empty($canal)) || (empty($ano)) || (empty($temporadas)) |
 
 if($avaliacao >= 0 && $avaliacao <= 10){
     $PDO = db_connect();
-    $sql = "INSERT INTO Series(nome, canal_id, ano, temporadas, avaliacao) VALUES(:nome, :canal_id, :ano, :temporadas, :avaliacao)";
+    $sql = "INSERT INTO series(nome, canal_id, ano, temporadas, avaliacao) VALUES(:nome, :canal_id, :ano, :temporadas, :avaliacao)";
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':nome', $nome);
     $stmt->bindParam(':canal_id', $canal);
@@ -25,17 +25,17 @@ if($avaliacao >= 0 && $avaliacao <= 10){
     $stmt->bindParam(':avaliacao', $avaliacao);
     if($stmt -> execute())
     {
-        header('Location: msgSucesso.html');
+        header('Location: ./msgSucesso/msgSucessoCadastroSerie.html');
     }
     else
     {
-        header('Location: msgErro.html');
+        header('Location: ./msgErro/msgErro.html');
     }
 }
 
 else
 {
-    header('Location: msgErro.html');
+    header('Location: ./msgErro/msgErroAvaliacaoAdd.html');
 }
 
 ?>

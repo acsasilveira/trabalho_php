@@ -1,10 +1,10 @@
 <?php
-/*require_once 'init.php';
+require_once 'init.php';
 $PDO = db_connect();
-$sql = "SELECT id, nomeCanal FROM Canal ORDER BY nomeCanal ASC";
+$sql = "SELECT id, nomeCanal FROM canal ORDER BY nomeCanal ASC";
 $stmt = $PDO->prepare($sql);
 $stmt-> execute();
-*/
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ $stmt-> execute();
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("navbar.html");
+                    $("#menu").load("./navbar/navbar.html");
                 });
             });
         </script>

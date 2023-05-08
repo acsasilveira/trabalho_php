@@ -8,27 +8,27 @@ if(empty($id))
 }
 
 $PDO = db_connect();
-$sql_serie = "SELECT COUNT(*) AS total FROM Series WHERE canal_id = :id";
+$sql_serie = "SELECT COUNT(*) AS total FROM series WHERE canal_id = :id";
 $stmt_serie = $PDO->prepare($sql_serie);
 $stmt_serie->bindParam(':id', $id, PDO::PARAM_INT);
 $stmt_serie->execute();
 $total = $stmt_serie->fetchColumn();
 if ($total > 0)
 {
-    header('Location: msgErroDelete.html');
+    header('Location: ./msgErro/msgErroDelete.html');
 }
 else
 {
-    $sql = "DELETE FROM Canal WHERE id = :id";
+    $sql = "DELETE FROM canal WHERE id = :id";
     $stmt = $PDO->prepare($sql);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     if($stmt -> execute())
     {
-        header('Location: msgSucesso.html');
+        header('Location: ./msgSucesso/msgSucesso.html');
     }
     else
     {
-        header('Location: msgErro.html');
+        header('Location: ./msgErro/msgErro.html');
     }
 }
 ?>
