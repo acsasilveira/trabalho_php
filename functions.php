@@ -2,8 +2,8 @@
 // Conecta com o MySQL usando o PDO
 function db_connect()
 {
-    $user = "acsa";
-    $pass = "151205";
+    $user = "alunos";
+    $pass = "cefetmg";
     $name = "series_assistidas";
     $host = "localhost";
     

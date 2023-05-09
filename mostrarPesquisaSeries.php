@@ -3,7 +3,7 @@ require 'init.php';
 $trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
 if (empty($trecho))
 {
-    header('Location: ./../msgErro/msgErro.html');
+    header('Location: msgErro/msgErro.html');
 }
 $pesquisa = '%' . $trecho . '%';
 $PDO = db_connect();
@@ -26,7 +26,7 @@ $stmt->execute([':trecho' => $pesquisa]);
     <script type="text/javascript">
         $(document).ready(function(){
             $(function(){
-                $("#menu").load("./../navbar/navbar.html");
+                $("#menu").load("navbar.html");
             });
         });
     </script>
@@ -46,7 +46,7 @@ $stmt->execute([':trecho' => $pesquisa]);
                     <th scope="col">Temporadas</th>
                     <th scope="col">Avaliação</th>
                     <th scope="col">
-                        <a class="btn btn-secondary" href="./pesquisarSerie.html" onclick="return confirm('Tem certeza que deseja refazer a pesquisa?');">Refazer Pesquisa</a>
+                        <a class="btn btn-secondary" href="pesquisarSerie.html" onclick="return confirm('Tem certeza que deseja refazer a pesquisa?');">Refazer Pesquisa</a>
                     </th>
                     
                 </tr>
@@ -60,8 +60,8 @@ $stmt->execute([':trecho' => $pesquisa]);
                         <td><?php echo $serie['temporadas'] ?></td>
                         <td><?php echo $serie['avaliacao'] ?></td>
                         <td>
-                            <a class="btn btn-primary" href="./../formEditSeries.php?id=<?php echo $serie['id'] ?>">Editar</a>
-                            <a class="btn btn-danger" href="./../deleteSeries.php?id=<?php echo $serie['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
+                            <a class="btn btn-primary" href="formEditSeries.php?id=<?php echo $serie['id'] ?>">Editar</a>
+                            <a class="btn btn-danger" href="deleteSeries.php?id=<?php echo $serie['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

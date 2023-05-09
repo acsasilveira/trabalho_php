@@ -4,7 +4,7 @@ require 'init.php';
 $trecho = isset($_POST['trecho']) ? $_POST['trecho'] : null;
 if (empty($trecho))
 {
-    header('Location: ./../msgErro/msgErro.html');
+    header('Location: msgErro/msgErro.html');
 }
 $pesquisa = '%' . $trecho . '%';
 $PDO = db_connect();
@@ -27,7 +27,7 @@ $stmt->execute([':trecho' => $pesquisa]);
     <script type="text/javascript">
         $(document).ready(function(){
             $(function(){
-                $("#menu").load("./../navbar/navbar.html");
+                $("#menu").load("navbar.html");
             });
         });
     </script>
@@ -43,7 +43,7 @@ $stmt->execute([':trecho' => $pesquisa]);
                 <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">
-                        <a class="btn btn-secondary" href="./pesquisarCanal.html" onclick="return confirm('Tem certeza que deseja refazer a pesquisa?');">Refazer Pesquisa</a>
+                        <a class="btn btn-secondary" href="pesquisarCanal.html" onclick="return confirm('Tem certeza que deseja refazer a pesquisa?');">Refazer Pesquisa</a>
                     </th>
                 </tr>
             </thead>
@@ -52,8 +52,8 @@ $stmt->execute([':trecho' => $pesquisa]);
                     <tr>
                         <td><?php echo $canal['nomeCanal'] ?></td>
                         <td>
-                            <a class="btn btn-primary" href="./../formEditCanal.php?id=<?php echo $canal['id'] ?>">Editar</a>
-                            <a class="btn btn-danger" href="./../deleteCanais.php?id=<?php echo $canal['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
+                            <a class="btn btn-primary" href="formEditCanal.php?id=<?php echo $canal['id'] ?>">Editar</a>
+                            <a class="btn btn-danger" href="deleteCanais.php?id=<?php echo $canal['id'] ?>" onclick="return confirm('Tem certeza de que deseja remover?');">Remover</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

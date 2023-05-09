@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisa | Séries Assistidas</title>
-    <link href="./../bootstrap/css/bootstrap.css" rel="stylesheet">
-    <script src="./../bootstrap/js/popper.js"></script>
-    <script src="./../bootstrap/js/bootstrap.js"></script>
-    <script src="./../bootstrap/js/JQuery.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="bootstrap/js/popper.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <script src="bootstrap/js/JQuery.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $(function(){
-                $("#menu").load("./../navbar/navbar.html");
+                $("#menu").load("navbar.html");
             });
         });
     </script>
@@ -21,7 +21,7 @@
     <div class="container">
             <div id="menu"></div>
             <p class="h3 text-center" style="margin-top: 120px">Pesquisa de Canais</p>
-        <form class="form-inline my-2 my-lg-0" action="./mostrarPesquisaCanais.php" method="post">
+        <form class="form-inline my-2 my-lg-0" action="mostrarPesquisaCanais.php" method="post">
             <input class="form-control mr-sm-2" type="search" name="trecho" placeholder="Pesquisar" aria-label="Pesquisar">
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Pesquisar</button>
         </form>

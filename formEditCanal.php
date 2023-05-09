@@ -27,7 +27,7 @@ $canal = $stmt->fetch(PDO::FETCH_ASSOC);
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("./navbar/navbar.html");
+                    $("#menu").load("navbar.html");
                 });
             });
         </script>

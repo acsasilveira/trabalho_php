@@ -21,7 +21,7 @@ $stmt-> execute();
         <script type="text/javascript">
             $(document).ready(function(){
                 $(function(){
-                    $("#menu").load("./navbar/navbar.html");
+                    $("#menu").load("navbar.html");
                 });
             });
         </script>
